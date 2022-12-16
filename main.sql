@@ -1,0 +1,42 @@
+CREATE TABLE Employee (
+    EmployeeName VARCHAR(20) NOT NULL,
+    EmpID NUMBER PRIMARY KEY,
+    Salary NUMBER,
+    CITY VARCHAR(20) NOT NULL, 
+    AGE NUMBER CHECK (AGE > 18),
+    DEPT VARCHAR(20) DEFAULT 'CS'
+);
+
+DESC EMPLOYEE
+
+INSERT INTO EMPLOYEE VALUES ('Harish', 1, 1000000, 'Lucknow', 21, default)
+INSERT INTO EMPLOYEE VALUES ('Mustafa', 2, 1000000, 'Kanpur', 22, default)
+INSERT INTO EMPLOYEE VALUES ('Anushka', 3, 1000000, 'Kanpur' ,23, default)
+INSERT INTO EMPLOYEE VALUES ('Sharma', 4, 100000000, 'Lucknow' ,21, default)
+
+SELECT * FROM EMPLOYEE WHERE EMPLOYEENAME LIKE '%a'
+
+=================================================================================================
+
+AGGREGATE FUNCTION
+MIN MAX, COUNT, SUM, AVERAGE, HAVING, GROUP BY
+1. Apply all aggregate function on your table
+2. apply aggregat functions with group by
+3. apply aggregate function with group by and having
+
+
+DESC EMPLOYEE
+
+SELECT MAX(AGE) AS MAX_AGE FROM EMPLOYEE
+
+SELECT MIN(AGE) AS MIN_AGE FROM EMPLOYEE
+
+SELECT AVG(AGE) AS AVG_AGE FROM EMPLOYEE
+
+SELECT EMPLOYEENAME, COUNT(CITY) FROM EMPLOYEE GROUP BY CITY, EMPLOYEENAME HAVING CITY = 'Kanpur'
+
+SELECT EMPLOYEENAME, AVG(AGE) FROM EMPLOYEE GROUP BY CITY, AGE, EMPLOYEENAME HAVING CITY = 'Kanpur'
+
+
+SELECT * FROM EMPLOYEE WHERE EMPID = :EMPID
+
